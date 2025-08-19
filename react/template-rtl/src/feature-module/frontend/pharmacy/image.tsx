@@ -1,0 +1,26 @@
+export { default as Product} from '../../../assets/img/products/product.jpg';
+export { default as Product1} from '../../../assets/img/products/product1.jpg';
+export { default as Product2} from '../../../assets/img/products/product2.jpg';
+export { default as Product3} from '../../../assets/img/products/product3.jpg';
+export { default as Product4} from '../../../assets/img/products/product4.jpg';
+export { default as Product5} from '../../../assets/img/products/product5.jpg';
+export { default as Product6} from '../../../assets/img/products/product6.jpg';
+export { default as Product7} from '../../../assets/img/products/product7.jpg';
+export { default as Product8} from '../../../assets/img/products/product8.jpg';
+export { default as Product10} from '../../../assets/img/products/product10.jpg';
+export { default as Product11} from '../../../assets/img/products/product11.jpg';
+export { default as Product12} from '../../../assets/img/products/product12.jpg';
+export { default as Product13} from '../../../assets/img/products/product13.jpg';
+export { default as Product14} from '../../../assets/img/products/product14.jpg';
+export { default as Product15} from '../../../assets/img/products/product15.jpg';
+export { default as Medicalimg1} from '../../../assets/img/medical-img1.jpg';
+export { default as Medicalimg2} from '../../../assets/img/medical-img2.jpg';
+export { default as Medicalimg3} from '../../../assets/img/medical-img3.jpg';
+export { default as feature01} from '../../../assets/img/features/feature-01.jpg';
+export { default as feature02} from '../../../assets/img/features/feature-02.jpg';
+export { default as feature03} from '../../../assets/img/features/feature-03.jpg';
+export { default as feature04} from '../../../assets/img/features/feature-04.jpg';
+export { default as patient} from '../../../assets/img/patients/patient.jpg'
+export { default as patient1} from '../../../assets/img/patients/patient1.jpg';
+export { default as patient2} from '../../../assets/img/patients/patient2.jpg';
+

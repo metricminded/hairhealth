@@ -1,0 +1,13 @@
+export { default as IMG01} from '../../../../../assets/img/doctors/doctor-thumb-01.jpg';
+export { default as IMG02} from '../../../../../assets/img/doctors/doctor-thumb-02.jpg';
+export { default as IMG03} from '../../../../../assets/img/doctors/doctor-thumb-03.jpg';
+export { default as IMG04} from '../../../../../assets/img/doctors/doctor-thumb-04.jpg';
+export { default as IMG05} from '../../../../../assets/img/doctors/doctor-thumb-06.jpg';
+export { default as IMG_sp_02} from '../../../../../assets/img/specialities/specialities-05.png';
+export { default as IMG_sp_03} from '../../../../../assets/img/specialities/specialities-04.png';
+export { default as IMG_sp_04} from '../../../../../assets/img/specialities/specialities-01.png';
+export { default as IMG_sp_05} from '../../../../../assets/img/specialities/specialities-03.png';
+export { default as IMG_fe_01} from '../../../../../assets/img/features/feature-01.jpg';
+export { default as IMG_fe_02} from '../../../../../assets/img/features/feature-02.jpg';
+export { default as IMG_fe_03} from '../../../../../assets/img/features/feature-03.jpg';
+export { default as IMG_fe_04} from '../../../../../assets/img/features/feature-04.jpg';
