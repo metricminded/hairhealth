@@ -1,6 +1,7 @@
 import Anthropic from "@anthropic-ai/sdk";
 import { supabase } from "../supabase";
 import { SupabaseQuery } from "./toolDefinitions";
+import { executeBotTool } from "./botTools";
 
 interface Message {
   role: "user" | "assistant";
@@ -10,11 +11,13 @@ interface Message {
 export class CompanyAgent {
   private client: Anthropic;
   private conversationHistory: Message[] = [];
+  private landbotApiKey: string;
 
-  constructor(apiKey: string) {
+  constructor(apiKey: string, landbotApiKey?: string) {
     this.client = new Anthropic({
       apiKey,
     });
+    this.landbotApiKey = landbotApiKey || "";
   }
 
   async chat(userMessage: string): Promise<string> {
@@ -44,6 +47,7 @@ export class CompanyAgent {
                 "sales_deals",
                 "reports",
                 "meetings",
+                "bot_data",
               ],
             },
             operation: {
@@ -57,6 +61,42 @@ export class CompanyAgent {
             orderBy: { type: "string" },
           },
           required: ["table", "operation"],
+        },
+      },
+      {
+        name: "sync_landbot_data",
+        description:
+          "Sync Landbot conversations and leads to Supabase. Fetches all conversations from Landbot API and saves them.",
+        input_schema: {
+          type: "object" as const,
+          properties: {},
+        },
+      },
+      {
+        name: "get_bot_leads",
+        description:
+          "Get recent leads from Landbot bot. Shows who has talked to your bot.",
+        input_schema: {
+          type: "object" as const,
+          properties: {
+            days: {
+              type: "number",
+              description: "Number of days to look back (default: 7)",
+            },
+            emailOnly: {
+              type: "boolean",
+              description: "Only return leads with email addresses",
+            },
+          },
+        },
+      },
+      {
+        name: "get_bot_statistics",
+        description:
+          "Get statistics about bot performance and leads captured.",
+        input_schema: {
+          type: "object" as const,
+          properties: {},
         },
       },
     ];
@@ -152,6 +192,17 @@ For data modifications, always confirm what you're about to do before executing.
     try {
       if (toolName === "query_database") {
         return await this.queryDatabase(input);
+      } else if (
+        toolName === "sync_landbot_data" ||
+        toolName === "get_bot_leads" ||
+        toolName === "get_bot_statistics"
+      ) {
+        if (!this.landbotApiKey) {
+          return JSON.stringify({
+            error: "Landbot API key not configured",
+          });
+        }
+        return await executeBotTool(toolName, input, this.landbotApiKey);
       }
       return JSON.stringify({ error: "Unknown tool" });
     } catch (error) {

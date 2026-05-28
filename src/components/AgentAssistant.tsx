@@ -17,12 +17,15 @@ export function AgentAssistant() {
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const apiKey = import.meta.env.VITE_ANTHROPIC_API_KEY;
-    if (!apiKey) {
+    const anthropicKey = import.meta.env.VITE_ANTHROPIC_API_KEY;
+    const landbotKey = import.meta.env.VITE_LANDBOT_API_KEY;
+
+    if (!anthropicKey) {
       console.error("VITE_ANTHROPIC_API_KEY not found in environment");
       return;
     }
-    setAgent(new CompanyAgent(apiKey));
+
+    setAgent(new CompanyAgent(anthropicKey, landbotKey));
   }, []);
 
   const scrollToBottom = () => {
