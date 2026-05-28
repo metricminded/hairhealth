@@ -115,6 +115,7 @@ You have access to company data including:
 - Sales Deals: Sales pipeline
 - Reports: Executive reports
 - Meetings: Company meetings
+- Bot Data: Leads captured from Landbot
 
 When users ask about company data, use the query_database tool to fetch information from Supabase.
 Always be helpful, clear, and provide actionable insights.
