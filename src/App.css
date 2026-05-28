@@ -1,0 +1,119 @@
+.app-layout {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.agent-panel {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  max-width: 400px;
+  height: 100%;
+  max-height: 600px;
+  background: white;
+  border-left: 1px solid #e2e8f0;
+  border-top: 1px solid #e2e8f0;
+  border-radius: 12px 12px 0 0;
+  box-shadow: -4px -4px 20px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.close-agent {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: #f7fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.2em;
+  color: #718096;
+  transition: all 0.2s ease;
+  z-index: 1001;
+}
+
+.close-agent:hover {
+  background: #edf2f7;
+  color: #1a202c;
+  border-color: #cbd5e0;
+}
+
+.agent-panel > * {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.open-agent {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 50px;
+  font-size: 1em;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+  transition: all 0.3s ease;
+  z-index: 999;
+}
+
+.open-agent:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(102, 126, 234, 0.5);
+}
+
+.open-agent:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  .agent-panel {
+    max-width: 100%;
+    max-height: 70vh;
+  }
+
+  .open-agent {
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 16px;
+    font-size: 0.9em;
+  }
+}
+
+@media (max-width: 480px) {
+  .agent-panel {
+    max-height: 60vh;
+  }
+
+  .open-agent {
+    bottom: 15px;
+    right: 15px;
+    padding: 8px 14px;
+    font-size: 0.85em;
+  }
+}
