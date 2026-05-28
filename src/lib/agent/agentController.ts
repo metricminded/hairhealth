@@ -62,7 +62,7 @@ export class CompanyAgent {
     ];
 
     const response = await this.client.messages.create({
-      model: "claude-opus-4-1",
+      model: "claude-sonnet-4-6",
       max_tokens: 2000,
       system: `You are an intelligent assistant for a company operational hub. You help teams manage projects, track OKRs, analyze sales pipelines, and provide executive insights.
 
@@ -119,7 +119,7 @@ For data modifications, always confirm what you're about to do before executing.
 
         // Get follow-up response
         const followUp = await this.client.messages.create({
-          model: "claude-opus-4-1",
+          model: "claude-sonnet-4-6",
           max_tokens: 2000,
           messages: this.conversationHistory.map((msg) => ({
             role: msg.role,
